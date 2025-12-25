@@ -1,0 +1,64 @@
+
+def do_addition(a, b):
+    return a + b
+
+def do_subtraction(a, b):
+    return a - b
+
+def do_multiplication(a, b):
+    return a * b
+
+def do_division(a, b):
+    if b == 0:
+        return "Error: You cannot divide by zero!"
+    return a / b
+def run_calculator():
+    print("WELCOME TO THE COMMAND-LINE CALCULATOR")
+    
+    running = True
+    while running:
+        print("\n--- MENU ---")
+        print("1. Add")
+        print("2. Subtract")
+        print("3. Multiply")
+        print("4. Divide")
+        print("5. Exit Program")
+        
+        user_choice = input("Select an option (1-5): ")
+
+        
+        if user_choice == '5':
+            print("Thank you for using the calculator. Bye!")
+            running = False
+            continue
+
+      
+        if user_choice in ['1', '2', '3', '4']:
+            try:
+                
+                val1 = float(input("Enter first number: "))
+                val2 = float(input("Enter second number: "))
+                
+                if user_choice == '1':
+                    print("Result:", val1, "+", val2, "=", do_addition(val1, val2))
+                
+                elif user_choice == '2':
+                    print("Result:", val1, "-", val2, "=", do_subtraction(val1, val2))
+                
+                elif user_choice == '3':
+                    print("Result:", val1, "x", val2, "=", do_multiplication(val1, val2))
+                
+                elif user_choice == '4':
+                    answer = do_division(val1, val2)
+                    print("Result:", val1, "/", val2, "=", answer)
+            
+            except ValueError:
+                
+                print("Invalid input! Please type numbers only.")
+        else:
+            print("That is not a valid menu option. Please try again.")
+
+        
+        input("\nPress Enter to continue...")
+if __name__ == "__main__":
+    run_calculator()
